@@ -1,4 +1,3 @@
-
 FROM php:7.3.6-fpm-alpine3.9
 RUN apk add --no-cache openssl bash nodejs npm postgresql-dev
 RUN docker-php-ext-install bcmath pdo pdo_pgsql
