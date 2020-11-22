@@ -1,12 +1,23 @@
 version: "3"
 
 services:
+  vue:
+    image: vuejs/ci
+    restart: always
+    volumes:
+      - ./vue:/app
+    ports:
+      - "8080:8080"
+    working_dir: /app
+    command: ["yarn", "serve"]
   web:
+    container_name: api
     restart: always
     build: ./laravel
     volumes:
       - ./laravel:/var/www/
   nginx:
+    container_name: nginx
     build: ./.docker/nginx
     restart: always
     ports:
